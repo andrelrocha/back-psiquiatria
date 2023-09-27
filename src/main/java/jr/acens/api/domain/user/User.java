@@ -37,6 +37,7 @@ public class User implements UserDetails {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "token_expiration")
     private LocalDateTime tokenExpiration;
+
     private UserRole role;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date birthday;
@@ -50,13 +51,13 @@ public class User implements UserDetails {
     public User (UserDTO data) {
         this.login = data.login();
         this.password = data.password();
-        this.role = UserRole.USER;
         this.name = data.name();
         this.birthday = data.birthday();
         this.phone = data.phone();
         this.cpf = data.cpf();
         this.profile = data.profile();
         this.professionalId = data.professionalId();
+        this.role = UserRole.USER;
     }
 
     @Override
@@ -111,4 +112,6 @@ public class User implements UserDetails {
     public void setTokenEmail(String tokenEmail) {
         this.tokenEmail = tokenEmail;
     }
+
+    public void setAdmin() { this.role = UserRole.ADMIN; }
 }
