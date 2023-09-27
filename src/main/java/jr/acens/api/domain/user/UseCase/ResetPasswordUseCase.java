@@ -24,7 +24,7 @@ public class ResetPasswordUseCase {
             var userExists = repository.existsByLogin(data.login());
 
             if (!userExists) {
-                throw new ValidationException("No user was found for the provided login");
+                throw new ValidationException("Não foi encontrado nenhum registro do login informado no banco de dados");
             }
 
             var user = repository.findByLoginToHandle(data.login());

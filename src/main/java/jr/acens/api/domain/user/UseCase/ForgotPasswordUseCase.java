@@ -26,7 +26,7 @@ public class ForgotPasswordUseCase {
         var userExists = repository.existsByLogin(login);
 
         if (!userExists) {
-            throw new ValidationException("No user was found for the provided login");
+            throw new ValidationException("Não foi encontrado nenhum registro do login informado no banco de dados");
         }
 
         var token = mailToken.generateEmailToken();
@@ -36,7 +36,7 @@ public class ForgotPasswordUseCase {
         var user = repository.findByLoginToHandle(login);
         user.forgotPassword(forgotDTO);
 
-        var subject = "Forgot Password";
+        var subject = "Esqueci minha senha";
 
         var mailDTO = new MailDTO(subject, login, token);
 

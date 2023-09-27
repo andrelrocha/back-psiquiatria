@@ -39,7 +39,6 @@ public class User implements UserDetails {
     private LocalDateTime tokenExpiration;
 
     private UserRole role;
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date birthday;
     @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}", message = "O CPF deve seguir o formato 999.999.999-99")
     private String cpf;

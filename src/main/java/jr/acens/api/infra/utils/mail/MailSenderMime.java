@@ -27,9 +27,9 @@ public class MailSenderMime {
 
             javaMailSender.send(mimeMessage);
 
-            return "Email successfully sent";
+            return "Email enviado com sucesso";
         } catch (Exception e) {
-            throw new EmailSendingException("Failed to send email", e);
+            throw new EmailSendingException("Erro ao enviar email", e);
         }
     }
 }
