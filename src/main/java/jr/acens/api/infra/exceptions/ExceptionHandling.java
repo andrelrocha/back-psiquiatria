@@ -39,12 +39,12 @@ public class ExceptionHandling {
 
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity handleBadCredentialsException() {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials.");
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas.");
     }
 
     @ExceptionHandler(AuthenticationException.class)
     public ResponseEntity handleAuthenticationException() {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Error while authenticating user");
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Erro no processo de autorização do usuário");
     }
 
     @ExceptionHandler(AccessDeniedException.class)
