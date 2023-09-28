@@ -37,11 +37,12 @@ public class User implements UserDetails {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "token_expiration")
     private LocalDateTime tokenExpiration;
-
+    @Enumerated(EnumType.STRING)
     private UserRole role;
     private Date birthday;
     @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}", message = "O CPF deve seguir o formato 999.999.999-99")
     private String cpf;
+    @Enumerated(EnumType.STRING)
     private UserProfile profile;
     @Column(name = "professional_id")
     private String professionalId;
