@@ -1,6 +1,6 @@
 package jr.acens.api.domain.user.UseCase;
 
-import jr.acens.api.domain.user.DTO.UserReturnDTO;
+import jr.acens.api.domain.user.DTO.UserReturnLoginDTO;
 import jr.acens.api.domain.user.User;
 import jr.acens.api.domain.user.UserRepository;
 import jr.acens.api.infra.exceptions.ValidationException;
@@ -17,7 +17,7 @@ public class CreateUserUseCase {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public UserReturnDTO createUser(UserDTO data) {
+    public UserReturnLoginDTO createUser(UserDTO data) {
         boolean userExists = userRepository.userExistsByLoginOrCpf(data.login(), data.cpf());
 
         if (userExists) {
@@ -32,6 +32,6 @@ public class CreateUserUseCase {
 
         var userOnDb = userRepository.save(newUser);
 
-        return new UserReturnDTO(userOnDb);
+        return new UserReturnLoginDTO(userOnDb);
     }
 }

@@ -8,7 +8,7 @@ import jr.acens.api.infra.utils.mail.MailSenderMime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import jr.acens.api.domain.user.DTO.UserForgotDTO;
-import jr.acens.api.domain.user.DTO.UserReturnLoginDTO;
+import jr.acens.api.domain.user.DTO.UserLoginOnlyDTO;
 
 import java.time.LocalDateTime;
 
@@ -21,7 +21,7 @@ public class ForgotPasswordUseCase {
     @Autowired
     private GenerateMailToken mailToken;
 
-    public void forgotPassword(UserReturnLoginDTO data) {
+    public void forgotPassword(UserLoginOnlyDTO data) {
         var login = data.login();
         var userExists = repository.existsByLogin(login);
 

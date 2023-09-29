@@ -1,26 +1,23 @@
 package jr.acens.api.domain.user.UseCase;
 
 import jr.acens.api.domain.user.DTO.UserReturnListDTO;
-import jr.acens.api.domain.user.DTO.UserUpdateDTO;
 import jr.acens.api.domain.user.UserRepository;
 import jr.acens.api.infra.exceptions.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UpdateUserUseCase {
+public class ListUserByIdUseCase {
     @Autowired
     private UserRepository repository;
 
-    public UserReturnListDTO updateUser(UserUpdateDTO data, Long id) {
+    public UserReturnListDTO listUserById(Long id) {
         var user = repository.findByIdToHandle(id);
 
         if (user == null) {
             throw new ValidationException("Não foram encontrados registros de usuário para o id fornecido.");
         }
 
-        user.updateUser(data);
-
-        return new UserReturnListDTO(user);
+        return  new UserReturnListDTO(user);
     }
 }
