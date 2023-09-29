@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
 import jr.acens.api.domain.user.DTO.UserDTO;
 import jr.acens.api.domain.user.DTO.UserForgotDTO;
+import jr.acens.api.domain.user.DTO.UserUpdateDTO;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -114,4 +115,19 @@ public class User implements UserDetails {
     }
 
     public void setAdmin() { this.role = UserRole.ADMIN; }
+
+    public void updateUser(UserUpdateDTO data) {
+        if (data.name() != null) {
+            this.name = data.name();
+        }
+        if (data.birthday() != null) {
+            this.birthday = data.birthday();
+        }
+        if (data.profile() != null) {
+            this.profile = data.profile();
+        }
+        if (data.phone() != null) {
+            this.phone = data.phone();
+        }
+    }
 }

@@ -2,10 +2,7 @@ package jr.acens.api.service.impl;
 
 import jakarta.transaction.Transactional;
 import jr.acens.api.domain.user.DTO.*;
-import jr.acens.api.domain.user.UseCase.CreateUserUseCase;
-import jr.acens.api.domain.user.UseCase.ForgotPasswordUseCase;
-import jr.acens.api.domain.user.UseCase.PerformLoginUseCase;
-import jr.acens.api.domain.user.UseCase.ResetPasswordUseCase;
+import jr.acens.api.domain.user.UseCase.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import jr.acens.api.infra.security.TokenJwtDto;
@@ -22,6 +19,9 @@ public class UserServiceImpl implements UserService {
     private PerformLoginUseCase performLoginUseCase;
     @Autowired
     private ResetPasswordUseCase resetPasswordUseCase;
+
+    @Autowired
+    private UpdateUserUseCase updateUserUseCase;
 
     @Override
     public TokenJwtDto performLogin(UserLoginDTO data) {
@@ -45,5 +45,11 @@ public class UserServiceImpl implements UserService {
     public String resetPassword(UserResetPassDTO data) {
         resetPasswordUseCase.resetPassword(data);
         return "Password successfully updated!";
+    }
+
+    @Override
+    public UserReturnDTO updateUser(UserUpdateDTO data, Long id) {
+        var ret = updateUserUseCase.updateUser(data, id);
+        return ret;
     }
 }

@@ -8,4 +8,5 @@ public interface UserService {
     UserReturnDTO createUser(UserDTO data);
     String forgotPassword(UserReturnLoginDTO data);
     String resetPassword(UserResetPassDTO data);
+    UserReturnDTO updateUser(UserUpdateDTO data, Long id);
 }

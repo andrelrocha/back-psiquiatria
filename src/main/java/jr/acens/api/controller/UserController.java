@@ -2,16 +2,10 @@ package jr.acens.api.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import jr.acens.api.domain.user.DTO.UserDTO;
-import jr.acens.api.domain.user.DTO.UserLoginDTO;
-import jr.acens.api.domain.user.DTO.UserResetPassDTO;
-import jr.acens.api.domain.user.DTO.UserReturnLoginDTO;
+import jr.acens.api.domain.user.DTO.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 import jr.acens.api.infra.security.TokenJwtDto;
 import jr.acens.api.service.UserService;
@@ -52,4 +46,10 @@ public class UserController {
         return ResponseEntity.ok(stringSuccess);
     }
 
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity updateUser(@RequestBody UserUpdateDTO data, @PathVariable Long id) {
+        var ret = userService.updateUser(data, id);
+        return ResponseEntity.ok(ret);
+    }
 }
