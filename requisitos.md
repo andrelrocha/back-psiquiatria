@@ -2,13 +2,15 @@
 CREATE USER - OK!
 SISTEMA DE LOGIN - OK!
 SISTEMA RECUPERAÇÃO DE SENHA - OK!
+UPDATE USER - OK!
+DELETE USER - OK!
+CREATE ADMIN - OK!
+LIST USER BY ID - OK!
 
 
----- DOENCAID é ENUM comas 5 doenças do documento
+---- DOENCAID é ENUM com as 5 doenças do documento
 
 **TO DO**
-UPDATE USER {confirmar dados que possam ser alterados}
-DELETE USER - [rota exclusiva adm] (CONFIRMAR QUESTÃO DO DELETE USER COM O ROLE/TESTAR COM USE SETADO COMO ADMIN)
 LIST USER {
 - All - {retorna todos paginado, ordenado por nome}
 - byName; {retorna todos paginado, ordenado por nome}
