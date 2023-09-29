@@ -26,6 +26,7 @@ public class SecurityConfigurations {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(req -> {
                     req.requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll();
+                    req.requestMatchers(HttpMethod.POST, "/users/admin/**").hasRole("ADMIN");
                     req.requestMatchers(HttpMethod.POST, "/users/**").permitAll();
                     //deve-se criar manualmente no DB o registro de login do arildo
                     //req.requestMatchers(HttpMethod.DELETE, "/doencas").hasRole("ADMIN");
