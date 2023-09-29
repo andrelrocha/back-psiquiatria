@@ -14,15 +14,7 @@ public class AuthenticateService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        /* DE ALGUMA FORMA TEM QUE PASSAR O ROLE EM USERDETAILS
-        return new User(
-                user.getUsername(),
-                user.getPassword(),
-                AuthorityUtils.createAuthorityList("ROLE_" + user.getAuthorities())
-        );
-         */
-
-
+        //userDetails recebe role-authority do user
         return userRepository.findByLogin(username);
     }
 }
