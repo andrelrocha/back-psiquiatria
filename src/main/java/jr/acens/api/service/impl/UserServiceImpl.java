@@ -3,6 +3,7 @@ package jr.acens.api.service.impl;
 import jakarta.transaction.Transactional;
 import jr.acens.api.domain.user.DTO.*;
 import jr.acens.api.domain.user.UseCase.*;
+import jr.acens.api.domain.user.admin.useCase.CreateAdminUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import jr.acens.api.infra.security.TokenJwtDto;
@@ -11,6 +12,8 @@ import jr.acens.api.service.UserService;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
+
+    //PROCESSO DE LOGIN
     @Autowired
     private ForgotPasswordUseCase forgotPasswordUseCase;
     @Autowired
@@ -18,6 +21,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private ResetPasswordUseCase resetPasswordUseCase;
 
+    //CRUD USER
     @Autowired
     private CreateUserUseCase createUserUseCase;
     @Autowired
@@ -26,6 +30,11 @@ public class UserServiceImpl implements UserService {
     private ListUserByIdUseCase listUserByIdUseCase;
     @Autowired
     private UpdateUserUseCase updateUserUseCase;
+
+
+    //CRUD ADMIN
+    @Autowired
+    private CreateAdminUseCase createAdminUseCase;
 
     @Override
     public TokenJwtDto performLogin(UserLoginDTO data) {
@@ -66,5 +75,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(Long id) {
         deleteUserUseCase.deleteUser(id);
+    }
+
+    @Override
+    public UserReturnLoginDTO createAdmin(UserDTO data) {
+        var admin = createAdminUseCase.createAdmin(data);
+        return admin;
     }
 }

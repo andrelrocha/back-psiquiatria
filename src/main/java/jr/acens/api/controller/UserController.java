@@ -4,7 +4,9 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import jr.acens.api.domain.user.DTO.*;
+import jr.acens.api.domain.user.admin.useCase.CreateAdminUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -68,5 +70,12 @@ public class UserController {
     public ResponseEntity listUserById(@PathVariable Long id) {
         var user = userService.listUserById(id);
         return ResponseEntity.ok(user);
+    }
+
+    @PostMapping("/admin/create")
+    @Transactional
+    public ResponseEntity createAdmin(@RequestBody @Valid UserDTO data) {
+        var newAdmin = userService.createAdmin(data);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newAdmin);
     }
 }
