@@ -12,14 +12,16 @@ import jr.acens.api.service.UserService;
 @Transactional
 public class UserServiceImpl implements UserService {
     @Autowired
-    private CreateUserUseCase createUserUseCase;
-    @Autowired
     private ForgotPasswordUseCase forgotPasswordUseCase;
     @Autowired
     private PerformLoginUseCase performLoginUseCase;
     @Autowired
     private ResetPasswordUseCase resetPasswordUseCase;
 
+    @Autowired
+    private CreateUserUseCase createUserUseCase;
+    @Autowired
+    private ListUserByIdUseCase listUserByIdUseCase;
     @Autowired
     private UpdateUserUseCase updateUserUseCase;
 
@@ -30,13 +32,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserReturnDTO createUser(UserDTO data) {
+    public UserReturnLoginDTO createUser(UserDTO data) {
         var user = createUserUseCase.createUser(data);
         return user;
     }
 
     @Override
-    public String forgotPassword(UserReturnLoginDTO data) {
+    public String forgotPassword(UserLoginOnlyDTO data) {
         forgotPasswordUseCase.forgotPassword(data);
         return "Email successfully sent!";
     }
@@ -48,8 +50,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserReturnDTO updateUser(UserUpdateDTO data, Long id) {
+    public UserReturnListDTO updateUser(UserUpdateDTO data, Long id) {
         var ret = updateUserUseCase.updateUser(data, id);
         return ret;
+    }
+
+    @Override
+    public UserReturnListDTO listUserById(Long id) {
+        var user = listUserByIdUseCase.listUserById(id);
+        return user;
     }
 }

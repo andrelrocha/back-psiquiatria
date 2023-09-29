@@ -34,7 +34,7 @@ public class UserController {
 
     @PostMapping("/forgot_password")
     @Transactional
-    public ResponseEntity forgotPassword(@RequestBody UserReturnLoginDTO data) {
+    public ResponseEntity forgotPassword(@RequestBody UserLoginOnlyDTO data) {
         var stringSuccess= userService.forgotPassword(data);
         return ResponseEntity.ok(stringSuccess);
     }
@@ -51,5 +51,12 @@ public class UserController {
     public ResponseEntity updateUser(@RequestBody UserUpdateDTO data, @PathVariable Long id) {
         var ret = userService.updateUser(data, id);
         return ResponseEntity.ok(ret);
+    }
+
+    @GetMapping("/{id}")
+    @Transactional
+    public ResponseEntity listUserById(@PathVariable Long id) {
+        var user = userService.listUserById(id);
+        return ResponseEntity.ok(user);
     }
 }
