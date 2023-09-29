@@ -11,4 +11,7 @@ public interface UserService {
     UserReturnListDTO updateUser(UserUpdateDTO data, Long id);
     UserReturnListDTO listUserById(Long id);
     void deleteUser(Long id);
+
+    //admin
+    UserReturnLoginDTO createAdmin(UserDTO data);
 }
