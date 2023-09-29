@@ -21,6 +21,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private CreateUserUseCase createUserUseCase;
     @Autowired
+    private DeleteUserUseCase deleteUserUseCase;
+    @Autowired
     private ListUserByIdUseCase listUserByIdUseCase;
     @Autowired
     private UpdateUserUseCase updateUserUseCase;
@@ -59,5 +61,10 @@ public class UserServiceImpl implements UserService {
     public UserReturnListDTO listUserById(Long id) {
         var user = listUserByIdUseCase.listUserById(id);
         return user;
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+        deleteUserUseCase.deleteUser(id);
     }
 }

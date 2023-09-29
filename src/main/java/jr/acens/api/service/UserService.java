@@ -10,4 +10,5 @@ public interface UserService {
     String resetPassword(UserResetPassDTO data);
     UserReturnListDTO updateUser(UserUpdateDTO data, Long id);
     UserReturnListDTO listUserById(Long id);
+    void deleteUser(Long id);
 }
