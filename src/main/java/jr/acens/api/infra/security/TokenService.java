@@ -22,7 +22,7 @@ public class TokenService {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
             String token = JWT.create()
-                    .withIssuer("andre rocha")
+                    .withIssuer("psiquiatria-app")
                     .withSubject(user.getLogin())
                     .withClaim("id", user.getId())
                     .withExpiresAt(dateExpires())
@@ -38,7 +38,7 @@ public class TokenService {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
             String userVerified = JWT.require(algorithm)
-                    .withIssuer("andre rocha")
+                    .withIssuer("psiquiatria-app")
                     .build()
                     .verify(tokenJwt)
                     .getSubject();

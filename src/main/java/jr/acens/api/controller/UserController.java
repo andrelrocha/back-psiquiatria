@@ -1,5 +1,6 @@
 package jr.acens.api.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import jr.acens.api.domain.user.DTO.*;
@@ -12,6 +13,7 @@ import jr.acens.api.service.UserService;
 
 @RestController
 @RequestMapping("/users")
+@SecurityRequirement(name = "bearer-key")
 public class UserController {
 
     @Autowired
@@ -22,14 +24,6 @@ public class UserController {
     public ResponseEntity performLogin(@RequestBody @Valid UserLoginDTO data) {
         TokenJwtDto tokenJwt = userService.performLogin(data);
         return ResponseEntity.ok(tokenJwt);
-    }
-
-    @PostMapping("/create")
-    @Transactional
-    public ResponseEntity createUser(@RequestBody @Valid UserDTO data, UriComponentsBuilder uriBuilder) {
-        var newUser = userService.createUser(data);
-        var uri = uriBuilder.path("/users/{id}").buildAndExpand(newUser.id()).toUri();
-        return ResponseEntity.created(uri).body(newUser);
     }
 
     @PostMapping("/forgot_password")
@@ -46,11 +40,27 @@ public class UserController {
         return ResponseEntity.ok(stringSuccess);
     }
 
+
+    @PostMapping("/create")
+    @Transactional
+    public ResponseEntity createUser(@RequestBody @Valid UserDTO data, UriComponentsBuilder uriBuilder) {
+        var newUser = userService.createUser(data);
+        var uri = uriBuilder.path("/users/{id}").buildAndExpand(newUser.id()).toUri();
+        return ResponseEntity.created(uri).body(newUser);
+    }
+
     @PutMapping("/{id}")
     @Transactional
     public ResponseEntity updateUser(@RequestBody UserUpdateDTO data, @PathVariable Long id) {
         var ret = userService.updateUser(data, id);
         return ResponseEntity.ok(ret);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/{id}")
