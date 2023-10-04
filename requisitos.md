@@ -20,6 +20,8 @@ LIST USER {
 }
 
 CRIAR TABLE DIRETRIZ
+- MIGRATION TABLE DIRETRIZ
+- CLASS DIRETRIZ
 - CADA DIRETRIZ RECEBERÁ TEXTO, TÓPICO, DOENCAID -> doencaID será enum {string}
 CREATE DIRETRIZ [rota exclusiva adm] - doencaId not null (string), título(varchar(255)), text (TEXT)
 UPDATE DIRETRIZ [rota exclusiva adm]
@@ -27,9 +29,13 @@ DELETE DIRETRIZ [rota exclusiva adm]
 LISTAR DIRETRIZES BY DOENCAID - receberá do front o doencaId e exibirá todos os textos com o doencaId
 
 CRIAR TABLE SINTOMAS
+- MIGRATION TABLE SINTOMAS
+- CLASS SINTOMAS
 - cada sintoma receberá - sintoma_desc, doencaId que estiver relacionado
 
 CRIAR TABLE REMÉDIOS
+- MIGRATION TABLE REMÉDIOS
+- CLASS REMÉDIOS
 {CONFERIR DADOS REMÉDIOS}
 
 
@@ -37,4 +43,5 @@ SUGESTAO DIRETRIZ
 - User irá sugerir doença, tópico e texto
 - ao sugerir, será enviado email para arildo para que ele confirme
 - ele pode aceitar, criando o registro na table doencas, ou recusar, apagando 
-- posso pensar em uma column CONFIRMATION_STATUS
+- posso pensar em uma column CONFIRMATION_STATUS - SÓ EXIBE AS DIRETRIZES QUE ESTEJAM COMO "TRUE"
+- nao haverá registro de false, mas uma exclusão do banco de dados direta 
