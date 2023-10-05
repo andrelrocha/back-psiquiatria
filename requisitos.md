@@ -6,18 +6,11 @@ UPDATE USER - OK!
 DELETE USER - OK!
 CREATE ADMIN - OK!
 LIST USER BY ID - OK!
+LIST ALL USERS COM PAGINAÇÃO - OK!
+LIST ALL USERS COM QUERY PERSONALIZADO DO FRONT - OK!
+LIST USERS BY PROFILE - OK!
 
 
----- DOENCAID é ENUM com as 5 doenças do documento
-
-**TO DO**
-LIST USER {
-- All - {retorna todos paginado, ordenado por nome}
-- byName; {retorna todos paginado, ordenado por nome}
-- byEmail;
-- byCrf; 
-- byProfile;
-}
 
 CRIAR TABLE DIRETRIZ
 - MIGRATION TABLE DIRETRIZ
