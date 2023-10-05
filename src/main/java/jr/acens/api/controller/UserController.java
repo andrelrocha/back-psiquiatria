@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import jr.acens.api.domain.user.DTO.*;
+import jr.acens.api.domain.user.UserProfile;
 import jr.acens.api.domain.user.admin.useCase.CreateAdminUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -70,11 +71,23 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     @Transactional
     public ResponseEntity listUserById(@PathVariable Long id) {
         var user = userService.listUserById(id);
         return ResponseEntity.ok(user);
+    }
+
+    @GetMapping("/profile/{profile}")
+    @Transactional
+    public ResponseEntity listUserByProfile(@PathVariable String profile,
+                                            @RequestParam(defaultValue = "0") int page,
+                                            @RequestParam(defaultValue = "10") int size,
+                                            @RequestParam(defaultValue = "name") String sortField,
+                                            @RequestParam(defaultValue = "asc") String sortOrder) {
+        var pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.fromString(sortOrder), sortField));
+        var pageReturn = userService.listUsersByProfile(pageable, profile);
+        return ResponseEntity.ok(pageReturn);
     }
 
     @GetMapping

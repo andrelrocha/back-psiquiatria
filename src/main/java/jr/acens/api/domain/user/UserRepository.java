@@ -1,5 +1,7 @@
 package jr.acens.api.domain.user;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,4 +28,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
             SELECT u FROM User u WHERE u.id = :id
             """)
     User findByIdToHandle(Long id);
+
+    @Query("SELECT u FROM User u WHERE u.profile = :profile")
+    Page<User> findAllByProfile(Pageable pageable, UserProfile profile);
 }

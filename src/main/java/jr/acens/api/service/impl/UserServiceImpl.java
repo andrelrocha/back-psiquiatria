@@ -3,6 +3,7 @@ package jr.acens.api.service.impl;
 import jakarta.transaction.Transactional;
 import jr.acens.api.domain.user.DTO.*;
 import jr.acens.api.domain.user.UseCase.*;
+import jr.acens.api.domain.user.UserProfile;
 import jr.acens.api.domain.user.admin.useCase.CreateAdminUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -32,6 +33,8 @@ public class UserServiceImpl implements UserService {
     private ListUserByIdUseCase listUserByIdUseCase;
     @Autowired
     private ListAllUserUseCase listAllUserUseCase;
+    @Autowired
+    private ListUsersByProfile listUsersByProfile;
     @Autowired
     private UpdateUserUseCase updateUserUseCase;
 
@@ -84,6 +87,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public Page<UserReturnListDTO> listAllUser(Pageable pageable) {
         var page = listAllUserUseCase.listAllUsers(pageable);
+        return page;
+    }
+
+    @Override
+    public Page<UserReturnListDTO> listUsersByProfile(Pageable pageable, String profile) {
+        var page = listUsersByProfile.listUsersByProfile(pageable, profile);
         return page;
     }
 
