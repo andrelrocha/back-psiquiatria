@@ -6,6 +6,11 @@ import jakarta.validation.Valid;
 import jr.acens.api.domain.user.DTO.*;
 import jr.acens.api.domain.user.admin.useCase.CreateAdminUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -70,6 +75,16 @@ public class UserController {
     public ResponseEntity listUserById(@PathVariable Long id) {
         var user = userService.listUserById(id);
         return ResponseEntity.ok(user);
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<UserReturnListDTO>> listAllUsers(@RequestParam(defaultValue = "0") int page,
+                                                                @RequestParam(defaultValue = "10") int size,
+                                                                @RequestParam(defaultValue = "name") String sortField,
+                                                                @RequestParam(defaultValue = "asc") String sortOrder) {
+        var pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.fromString(sortOrder), sortField));
+        var pageReturn = userService.listAllUser(pageable);
+        return ResponseEntity.ok(pageReturn);
     }
 
     @PostMapping("/admin/create")
