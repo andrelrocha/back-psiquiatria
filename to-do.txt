@@ -1,5 +1,0 @@
-possibilidade de alterar o JWT para armazenar o id do user, que será passado nas requisições
-
-listar user {
-    irá receber na query dos params if byId, if byName, if byProfile - chama use case personalizado para cada um
-}

@@ -9,26 +9,35 @@ LIST USER BY ID - OK!
 LIST ALL USERS COM PAGINAÇÃO - OK!
 LIST ALL USERS COM QUERY PERSONALIZADO DO FRONT - OK!
 LIST USERS BY PROFILE - OK!
+MIGRATION TABLE DIRETRIZ - OK!
+CRIAR O DOENCAS_CONVERTER - convertendo string para enum - OK!
+CLASS DIRETRIZ - OK!
+REPOSITORY DIRETRIZ - OK!
+MAIN DTO DIRETRIZ - OK!
+SERVICE LAYER DIRETRIZ - OK!
 
 
 
-CRIAR TABLE DIRETRIZ
-- MIGRATION TABLE DIRETRIZ
-- CLASS DIRETRIZ
-- CADA DIRETRIZ RECEBERÁ TEXTO, TÓPICO, DOENCAID -> doencaID será enum {string}
-CREATE DIRETRIZ [rota exclusiva adm] - doencaId not null (string), título(varchar(255)), text (TEXT)
+
+
+
+**DIRETRIZES** {ANDRÉ IRÁ PROTEGER AS ROTAS EXCLUSIVAS PARA ADM, DESENVOLVAM NORMAL}
+CREATE DIRETRIZ [rota exclusiva adm] 
 UPDATE DIRETRIZ [rota exclusiva adm]
 DELETE DIRETRIZ [rota exclusiva adm]
-LISTAR DIRETRIZES BY DOENCAID - receberá do front o doencaId e exibirá todos os textos com o doencaId
+LISTAR DIRETRIZES BY DOENCA - receberá do front o uma string, que passará por DoencasConverter para transformar em enum
+e exibirá todos os textos com o doenca recebido
 
 CRIAR TABLE SINTOMAS
 - MIGRATION TABLE SINTOMAS
 - CLASS SINTOMAS
-- cada sintoma receberá - sintoma_desc, doencaId que estiver relacionado
+- REPOSITORY SINTOMAS
+- cada sintoma receberá - sintoma_desc, doencaENUM que estiver relacionado
 
 CRIAR TABLE REMÉDIOS
 - MIGRATION TABLE REMÉDIOS
 - CLASS REMÉDIOS
+- REPOSITORY REMEDIOS
 {CONFERIR DADOS REMÉDIOS}
 
 
