@@ -24,6 +24,8 @@ SERVICE LAYER SINTOMAS - OK!
 
 
 **{ANDRÉ IRÁ PROTEGER AS ROTAS EXCLUSIVAS PARA ADM, DESENVOLVAM NORMAL}**
+//////////////
+LUCAS & WALISSON
 
 **DIRETRIZES** 
 CREATE DIRETRIZ [rota exclusiva adm] 
@@ -40,16 +42,20 @@ LISTAR SINTOMAS BY DOENCA - receberá do front o uma string, que passará por Do
 e exibirá todos os sintomas com o doenca recebido
 
 
-CRIAR TABLE REMÉDIOS
+
+
+///////////////
+ANDRÉ 
+
+CRIAR TABLE REMÉDIOS *{CONFERIR DADOS REMÉDIOS}* 
 - MIGRATION TABLE REMÉDIOS
 - CLASS REMÉDIOS
 - REPOSITORY REMEDIOS
-{CONFERIR DADOS REMÉDIOS}
 
-
-SUGESTAO DIRETRIZ 
+**SUGESTAO DIRETRIZ** 
 - User irá sugerir doença, tópico e texto
 - ao sugerir, será enviado email para arildo para que ele confirme
 - ele pode aceitar, criando o registro na table doencas, ou recusar, apagando 
 - posso pensar em uma column CONFIRMATION_STATUS - SÓ EXIBE AS DIRETRIZES QUE ESTEJAM COMO "TRUE"
 - nao haverá registro de false, mas uma exclusão do banco de dados direta 
+- usuário pode tanto adicionar uma sugestão, quanto sugerir editar uma informação já existente

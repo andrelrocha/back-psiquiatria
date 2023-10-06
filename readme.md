@@ -15,7 +15,7 @@ médica do paciente.
 
 - [x] Sistema de login e autenticação;
 - [x] Sistema de recuperação de senha;
-- [] CRUD de users;
+- [x] CRUD de users;
 - [] CRUD de diretrizes;
 - [] CRUD de sintomas;
 - [] CRUD de remedios;
