@@ -15,24 +15,30 @@ CLASS DIRETRIZ - OK!
 REPOSITORY DIRETRIZ - OK!
 MAIN DTO DIRETRIZ - OK!
 SERVICE LAYER DIRETRIZ - OK!
+MIGRATION TABLE SINTOMAS - OK!
+CLASS SINTOMAS - OK!
+REPOSITORY SINTOMAS - OK!
+MAIN DTO SINTOMAS - OK!
+SERVICE LAYER SINTOMAS - OK!
 
 
 
+**{ANDRÉ IRÁ PROTEGER AS ROTAS EXCLUSIVAS PARA ADM, DESENVOLVAM NORMAL}**
 
-
-
-**DIRETRIZES** {ANDRÉ IRÁ PROTEGER AS ROTAS EXCLUSIVAS PARA ADM, DESENVOLVAM NORMAL}
+**DIRETRIZES** 
 CREATE DIRETRIZ [rota exclusiva adm] 
 UPDATE DIRETRIZ [rota exclusiva adm]
 DELETE DIRETRIZ [rota exclusiva adm]
 LISTAR DIRETRIZES BY DOENCA - receberá do front o uma string, que passará por DoencasConverter para transformar em enum
 e exibirá todos os textos com o doenca recebido
 
-CRIAR TABLE SINTOMAS
-- MIGRATION TABLE SINTOMAS
-- CLASS SINTOMAS
-- REPOSITORY SINTOMAS
-- cada sintoma receberá - sintoma_desc, doencaENUM que estiver relacionado
+**SINTOMAS**
+CREATE SINTOMAS [rota exclusiva adm]
+UPDATE SINTOMAS [rota exclusiva adm]
+DELETE SINTOMAS [rota exclusiva adm]
+LISTAR SINTOMAS BY DOENCA - receberá do front o uma string, que passará por DoencasConverter para transformar em enum
+e exibirá todos os sintomas com o doenca recebido
+
 
 CRIAR TABLE REMÉDIOS
 - MIGRATION TABLE REMÉDIOS
