@@ -21,6 +21,7 @@ public class Sintoma {
     private long id;
     @Enumerated(EnumType.STRING)
     private Doencas doenca;
+    @Lob
     private String descricao;
 
     public Sintoma(SintomaDTO dto) {
