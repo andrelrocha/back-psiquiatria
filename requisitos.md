@@ -20,7 +20,8 @@ CLASS SINTOMAS - OK!
 REPOSITORY SINTOMAS - OK!
 MAIN DTO SINTOMAS - OK!
 SERVICE LAYER SINTOMAS - OK!
-
+MIGRATION TABLE REMEDIO - OK!
+REPOSITORY REMEDIO - OK!
 
 
 **{ANDRÉ IRÁ PROTEGER AS ROTAS EXCLUSIVAS PARA ADM, DESENVOLVAM NORMAL}**
@@ -28,29 +29,26 @@ SERVICE LAYER SINTOMAS - OK!
 LUCAS & WALISSON
 
 **DIRETRIZES** 
-CREATE DIRETRIZ [rota exclusiva adm] 
-UPDATE DIRETRIZ [rota exclusiva adm]
-DELETE DIRETRIZ [rota exclusiva adm]
-LISTAR DIRETRIZES BY DOENCA - receberá do front o uma string, que passará por DoencasConverter para transformar em enum
+- CREATE DIRETRIZ [rota exclusiva adm] 
+- UPDATE DIRETRIZ [rota exclusiva adm]
+- DELETE DIRETRIZ [rota exclusiva adm]
+- LISTAR DIRETRIZES BY DOENCA - receberá do front o uma string, que passará por DoencasConverter para transformar em enum
 e exibirá todos os textos com o doenca recebido
 
 **SINTOMAS**
-CREATE SINTOMAS [rota exclusiva adm]
-UPDATE SINTOMAS [rota exclusiva adm]
-DELETE SINTOMAS [rota exclusiva adm]
-LISTAR SINTOMAS BY DOENCA - receberá do front o uma string, que passará por DoencasConverter para transformar em enum
+- CREATE SINTOMAS [rota exclusiva adm]
+- UPDATE SINTOMAS [rota exclusiva adm]
+- DELETE SINTOMAS [rota exclusiva adm]
+- LISTAR SINTOMAS BY DOENCA - receberá do front o uma string, que passará por DoencasConverter para transformar em enum
 e exibirá todos os sintomas com o doenca recebido
 
-
-
+**REMÉDIOS**
+- LISTAR OS REMÉDIOS POR CLASSE - receberá do front a classe, a qual é enum, passando por ClasseConverter transformando em enum, 
+exibindo todos os remédios daquela classe e suas informações
+- ADICIONAR TODOS OS REMÉDIOS NO BANCO DE DADOS MANUALMENTE
 
 ///////////////
 ANDRÉ 
-
-CRIAR TABLE REMÉDIOS *{CONFERIR DADOS REMÉDIOS}* 
-- MIGRATION TABLE REMÉDIOS
-- CLASS REMÉDIOS
-- REPOSITORY REMEDIOS
 
 **SUGESTAO DIRETRIZ** 
 - User irá sugerir doença, tópico e texto

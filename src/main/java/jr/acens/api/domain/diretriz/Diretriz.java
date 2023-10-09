@@ -21,6 +21,7 @@ public class Diretriz {
     @Enumerated(EnumType.STRING)
     private Doencas doenca;
     private String topico;
+    @Lob
     private String text;
 
     public Diretriz(DiretrizDTO dto) {
