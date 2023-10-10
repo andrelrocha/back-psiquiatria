@@ -71,14 +71,14 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/id/{id}")
+    @GetMapping("/{id}")
     @Transactional
     public ResponseEntity listUserById(@PathVariable Long id) {
         var user = userService.listUserById(id);
         return ResponseEntity.ok(user);
     }
 
-    @GetMapping("/profile/{profile}")
+    @GetMapping("/admin/profiles/{profile}")
     @Transactional
     public ResponseEntity listUserByProfile(@PathVariable String profile,
                                             @RequestParam(defaultValue = "0") int page,
@@ -90,7 +90,7 @@ public class UserController {
         return ResponseEntity.ok(pageReturn);
     }
 
-    @GetMapping
+    @GetMapping("/admin/allusers")
     public ResponseEntity<Page<UserReturnListDTO>> listAllUsers(@RequestParam(defaultValue = "0") int page,
                                                                 @RequestParam(defaultValue = "10") int size,
                                                                 @RequestParam(defaultValue = "name") String sortField,
