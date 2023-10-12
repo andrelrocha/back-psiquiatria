@@ -12,4 +12,6 @@ public interface DiretrizRepository extends JpaRepository<Diretriz, Long> {
             WHERE d.doenca = :doenca
             """)
     Page<Diretriz> findAllDiretrizesByDoenca(Pageable pageable, Doencas doenca);
+
+    boolean existsByText(String text);
 }

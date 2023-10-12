@@ -9,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
 public record UserDTO(
+        @Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$", message = "O endereço de e-mail não é válido")
         @NotNull
         String login,
         @Size(min = 8, message = "A senha deve ter pelo menos 8 caracteres")
