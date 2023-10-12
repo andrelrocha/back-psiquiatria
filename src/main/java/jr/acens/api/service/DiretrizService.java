@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface DiretrizService {
-    public Page<DiretrizReturnDTO> getAllDiretrizesByDoenca(Pageable pageable, Doencas doenca);
+    public Page<DiretrizReturnDTO> getAllDiretrizesByDoenca(Pageable pageable, String doenca);
 
     public DiretrizReturnDTO createDiretriz(DiretrizDTO data);
 }
