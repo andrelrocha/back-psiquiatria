@@ -21,6 +21,7 @@ public class Diretriz {
     @Enumerated(EnumType.STRING)
     private Doencas doenca;
     private String topico;
+    private boolean confirmed;
     @Lob
     private String text;
 
@@ -28,5 +29,9 @@ public class Diretriz {
         this.doenca = dto.doencas();
         this.topico = dto.topico();
         this.text = dto.text();
+    }
+
+    public void confirmStatus() {
+        this.confirmed = true;
     }
 }

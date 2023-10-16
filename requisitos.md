@@ -22,7 +22,7 @@ MAIN DTO SINTOMAS - OK!
 SERVICE LAYER SINTOMAS - OK!
 MIGRATION TABLE REMEDIO - OK!
 REPOSITORY REMEDIO - OK!
-
+ALTERADO DIRETRIZ PARA LEVAR CONFIRMATION - OK!
 
 **{ANDRÉ IRÁ PROTEGER AS ROTAS EXCLUSIVAS PARA ADM, DESENVOLVAM NORMAL}**
 //////////////
@@ -33,7 +33,7 @@ LUCAS & WALISSON
 - UPDATE DIRETRIZ [rota exclusiva adm]
 - DELETE DIRETRIZ [rota exclusiva adm]
 - LISTAR DIRETRIZES BY DOENCA - receberá do front o uma string, que passará por DoencasConverter para transformar em enum
-e exibirá todos os textos com o doenca recebido
+e exibirá todos os textos com o doenca recebido {SOMENTE DEVE EXIBIR AS DIRETRIZES COM STATUSCONFIRMED == TRUE}
 
 **SINTOMAS**
 - CREATE SINTOMAS [rota exclusiva adm]
@@ -54,6 +54,6 @@ ANDRÉ
 - User irá sugerir doença, tópico e texto
 - ao sugerir, será enviado email para arildo para que ele confirme
 - ele pode aceitar, criando o registro na table doencas, ou recusar, apagando 
-- posso pensar em uma column CONFIRMATION_STATUS - SÓ EXIBE AS DIRETRIZES QUE ESTEJAM COMO "TRUE"
 - nao haverá registro de false, mas uma exclusão do banco de dados direta 
-- usuário pode tanto adicionar uma sugestão, quanto sugerir editar uma informação já existente
+- usuário pode tanto adicionar uma sugestão, quanto sugerir editar uma informação já existente 
+- {editar ele irá escolher o tópico e adicionará o texto}
