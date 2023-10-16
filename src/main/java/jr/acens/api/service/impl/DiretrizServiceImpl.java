@@ -3,8 +3,7 @@ package jr.acens.api.service.impl;
 import jr.acens.api.domain.Doencas;
 import jr.acens.api.domain.diretriz.DTO.DiretrizDTO;
 import jr.acens.api.domain.diretriz.DTO.DiretrizReturnDTO;
-import jr.acens.api.domain.diretriz.useCase.CreateDiretrizUseCase;
-import jr.acens.api.domain.diretriz.useCase.GetDiretrizesByDoencaUseCase;
+import jr.acens.api.domain.diretriz.useCase.*;
 import jr.acens.api.domain.user.UseCase.CreateUserUseCase;
 import jr.acens.api.service.DiretrizService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +19,14 @@ public class DiretrizServiceImpl implements DiretrizService {
     @Autowired
     private GetDiretrizesByDoencaUseCase getDiretrizesByDoencaUseCase;
 
+    @Autowired
+    private SuggestDiretrizUseCase suggestDiretrizUseCase;
+
+    @Autowired
+    private ConfirmSuggestionDiretrizUseCase confirmSuggestionDiretrizUseCase;
+    @Autowired
+    private DenySuggestionDiretrizUseCase denySuggestionDiretrizUseCase;
+
     @Override
     public Page<DiretrizReturnDTO> getAllDiretrizesByDoenca(Pageable pageable, String doenca) {
         var page = getDiretrizesByDoencaUseCase.getDiretrizesByDoenca(pageable, doenca);
@@ -30,5 +37,22 @@ public class DiretrizServiceImpl implements DiretrizService {
     public DiretrizReturnDTO createDiretriz(DiretrizDTO data) {
         var diretriz = createDiretrizUseCase.createDiretriz(data);
         return diretriz;
+    }
+
+    @Override
+    public String suggestDiretriz(DiretrizDTO data) {
+        suggestDiretrizUseCase.suggestDiretriz(data);
+        return "Sugestão criada! aguarde o administrador do sistema";
+    }
+
+    @Override
+    public String confirmSuggestion(Long id) {
+        confirmSuggestionDiretrizUseCase.confirmSuggestion(id);
+        return "Pronto! A sugestão foi aprovada e já será exibida quando da devida listagem.";
+    }
+
+    @Override
+    public void denySuggestion(Long id) {
+        denySuggestionDiretrizUseCase.denySuggestion(id);
     }
 }
