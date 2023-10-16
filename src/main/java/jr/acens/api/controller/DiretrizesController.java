@@ -45,7 +45,7 @@ public class DiretrizesController {
 
 
     @PostMapping("/suggestion")
-    public ResponseEntity<String> suggestDiretriz(DiretrizDTO data) {
+    public ResponseEntity<String> suggestDiretriz(@RequestBody DiretrizDTO data) {
         var string = diretrizService.suggestDiretriz(data);
         return ResponseEntity.status(HttpStatus.CREATED).body(string);
     }
