@@ -10,8 +10,9 @@ public interface DiretrizRepository extends JpaRepository<Diretriz, Long> {
     @Query("""
             SELECT d FROM Diretriz d 
             WHERE d.doenca = :doenca
+            AND WHERE d.confirmed = true
             """)
-    Page<Diretriz> findAllDiretrizesByDoenca(Pageable pageable, Doencas doenca);
+    Page<Diretriz> findAllDiretrizesConfirmedByDoenca(Pageable pageable, Doencas doenca);
 
     boolean existsByText(String text);
 }

@@ -19,6 +19,6 @@ public class GetDiretrizesByDoencaUseCase {
     public Page<DiretrizReturnDTO> getDiretrizesByDoenca(Pageable pageable, String doenca) {
         var doencaEnum = converter.convert(doenca);
 
-        return repository.findAllDiretrizesByDoenca(pageable, doencaEnum).map(DiretrizReturnDTO::new);
+        return repository.findAllDiretrizesConfirmedByDoenca(pageable, doencaEnum).map(DiretrizReturnDTO::new);
     }
 }
