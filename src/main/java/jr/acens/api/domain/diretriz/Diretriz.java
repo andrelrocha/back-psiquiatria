@@ -29,9 +29,10 @@ public class Diretriz {
         this.doenca = dto.doencas();
         this.topico = dto.topico();
         this.text = dto.text();
+        this.confirmed = false;
     }
 
-    public void confirmStatus() {
+    public void setConfirmed() {
         this.confirmed = true;
     }
 }

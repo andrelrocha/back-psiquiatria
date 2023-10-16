@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -40,5 +41,24 @@ public class DiretrizesController {
         var pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.fromString(sortOrder), sortField));
         var pageReturn = diretrizService.getAllDiretrizesByDoenca(pageable, doencas);
         return ResponseEntity.ok(pageReturn);
+    }
+
+
+    @PostMapping("/suggestion")
+    public ResponseEntity<String> suggestDiretriz(DiretrizDTO data) {
+        var string = diretrizService.suggestDiretriz(data);
+        return ResponseEntity.status(HttpStatus.CREATED).body(string);
+    }
+
+    @PostMapping("/admin/confirm/{id}")
+    public ResponseEntity<String> confirmDiretriz(@PathVariable Long id) {
+        var string = diretrizService.confirmSuggestion(id);
+        return ResponseEntity.ok(string);
+    }
+
+    @PostMapping("/admin/deny/{id}")
+    public ResponseEntity denyDiretriz(@PathVariable Long id) {
+        diretrizService.denySuggestion(id);
+        return ResponseEntity.noContent().build();
     }
 }

@@ -22,7 +22,11 @@ MAIN DTO SINTOMAS - OK!
 SERVICE LAYER SINTOMAS - OK!
 MIGRATION TABLE REMEDIO - OK!
 REPOSITORY REMEDIO - OK!
-ALTERADO DIRETRIZ PARA LEVAR CONFIRMATION - OK!
+ALTERADO DIRETRIZ COM CAMPO CONFIRMATION - OK!
+ALTERADO GETALLDIRETRIZES COM APENAS AQUELES CONFIRMED - OK!
+CREATE SUGGESTION - OK!
+DENY/APPROVE SUGGESTION - OK!
+PROTEGIDAS ROTAS DE APROVAR E NEGAR - OK!
 
 **{ANDRÉ IRÁ PROTEGER AS ROTAS EXCLUSIVAS PARA ADM, DESENVOLVAM NORMAL}**
 //////////////
@@ -40,7 +44,8 @@ e exibirá todos os textos com o doenca recebido {SOMENTE DEVE EXIBIR AS DIRETRI
 - UPDATE SINTOMAS [rota exclusiva adm]
 - DELETE SINTOMAS [rota exclusiva adm]
 - LISTAR SINTOMAS BY DOENCA - receberá do front o uma string, que passará por DoencasConverter para transformar em enum
-e exibirá todos os sintomas com o doenca recebido
+e exibirá todos os sintomas com o doenca recebido 
+- ROTA EXCLUSIVA DE ADM QUE APAREÇA TODAS AS SUGESTÕES, NAO SO AQUELAS CONFIRMED
 
 **REMÉDIOS**
 - LISTAR OS REMÉDIOS POR CLASSE - receberá do front a classe, a qual é enum, passando por ClasseConverter transformando em enum, 

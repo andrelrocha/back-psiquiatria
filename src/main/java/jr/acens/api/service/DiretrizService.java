@@ -10,4 +10,8 @@ public interface DiretrizService {
     public Page<DiretrizReturnDTO> getAllDiretrizesByDoenca(Pageable pageable, String doenca);
 
     public DiretrizReturnDTO createDiretriz(DiretrizDTO data);
+
+    public String suggestDiretriz(DiretrizDTO data);
+    public String confirmSuggestion(Long id);
+    public void denySuggestion(Long id);
 }
