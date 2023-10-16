@@ -36,6 +36,7 @@ public class DiretrizServiceImpl implements DiretrizService {
     @Override
     public DiretrizReturnDTO createDiretriz(DiretrizDTO data) {
         var diretriz = createDiretrizUseCase.createDiretriz(data);
+        confirmSuggestionDiretrizUseCase.confirmSuggestion(diretriz.id());
         return diretriz;
     }
 
