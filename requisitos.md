@@ -56,9 +56,5 @@ exibindo todos os remédios daquela classe e suas informações
 ANDRÉ 
 
 **SUGESTAO DIRETRIZ** 
-- User irá sugerir doença, tópico e texto
-- ao sugerir, será enviado email para arildo para que ele confirme
-- ele pode aceitar, criando o registro na table doencas, ou recusar, apagando 
-- nao haverá registro de false, mas uma exclusão do banco de dados direta 
-- usuário pode tanto adicionar uma sugestão, quanto sugerir editar uma informação já existente 
+- FALTA OPÇÃO DO USER EDITAR UMA DIRETRIZ - OU SUGERIR UMA NOVA A PARTIR DO TÓPICO JÁ EXISTENTE
 - {editar ele irá escolher o tópico e adicionará o texto}

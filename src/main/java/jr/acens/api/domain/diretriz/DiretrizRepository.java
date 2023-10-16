@@ -15,6 +15,7 @@ public interface DiretrizRepository extends JpaRepository<Diretriz, Long> {
     Page<Diretriz> findAllDiretrizesConfirmedByDoenca(Pageable pageable, Doencas doenca);
 
     boolean existsByText(String text);
+
     boolean existsByTopico(String topico);
 
     @Query("""

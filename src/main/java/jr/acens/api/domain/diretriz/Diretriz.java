@@ -26,7 +26,7 @@ public class Diretriz {
     private String text;
 
     public Diretriz(DiretrizDTO dto) {
-        this.doenca = dto.doencas();
+        this.doenca = dto.doenca();
         this.topico = dto.topico();
         this.text = dto.text();
         this.confirmed = false;
