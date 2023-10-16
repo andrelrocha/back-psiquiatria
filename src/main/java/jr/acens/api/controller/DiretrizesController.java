@@ -24,14 +24,6 @@ public class DiretrizesController {
     @Autowired
     private DiretrizService diretrizService;
 
-    @PostMapping("/create")
-    @Transactional
-    public ResponseEntity<DiretrizReturnDTO> createDiretriz(@RequestBody DiretrizDTO data, UriComponentsBuilder uriBuilder) {
-        var diretriz = diretrizService.createDiretriz(data);
-        var uri = uriBuilder.path("/diretrizes/{titulo}").buildAndExpand(diretriz.titulo()).toUri();
-        return ResponseEntity.created(uri).body(diretriz);
-    }
-
     @GetMapping("/{doencas}")
     public ResponseEntity<Page<DiretrizReturnDTO>> listAllDiretrizes(@PathVariable String doencas,
                                                                 @RequestParam(defaultValue = "0") int page,
@@ -48,6 +40,14 @@ public class DiretrizesController {
     public ResponseEntity<String> suggestDiretriz(@RequestBody DiretrizDTO data) {
         var string = diretrizService.suggestDiretriz(data);
         return ResponseEntity.status(HttpStatus.CREATED).body(string);
+    }
+
+    @PostMapping("/admin/create")
+    @Transactional
+    public ResponseEntity<DiretrizReturnDTO> createDiretriz(@RequestBody DiretrizDTO data, UriComponentsBuilder uriBuilder) {
+        var diretriz = diretrizService.createDiretriz(data);
+        var uri = uriBuilder.path("/diretrizes/{titulo}").buildAndExpand(diretriz.titulo()).toUri();
+        return ResponseEntity.created(uri).body(diretriz);
     }
 
     @PostMapping("/admin/confirm/{id}")
