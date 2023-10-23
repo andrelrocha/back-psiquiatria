@@ -24,6 +24,8 @@ public class CreateDiretrizUseCase {
 
         var diretrizOnDb = repository.save(diretriz);
 
+        diretrizOnDb.setConfirmed();
+
         return new DiretrizReturnDTO(diretrizOnDb);
     }
 }
