@@ -26,6 +26,8 @@ public class DiretrizServiceImpl implements DiretrizService {
     private ConfirmSuggestionDiretrizUseCase confirmSuggestionDiretrizUseCase;
     @Autowired
     private DenySuggestionDiretrizUseCase denySuggestionDiretrizUseCase;
+    @Autowired
+    private GetDiretrizesSuggestionUseCase getDiretrizesSuggestionUseCase;
 
     @Override
     public Page<DiretrizReturnDTO> getAllDiretrizesByDoenca(Pageable pageable, String doenca) {
@@ -55,5 +57,11 @@ public class DiretrizServiceImpl implements DiretrizService {
     @Override
     public void denySuggestion(Long id) {
         denySuggestionDiretrizUseCase.denySuggestion(id);
+    }
+
+    @Override
+    public Page<DiretrizReturnDTO> getDiretrizesSuggestion(Pageable pageable) {
+        var diretrizes = getDiretrizesSuggestionUseCase.getDiretrizesSuggestion(pageable);
+        return diretrizes;
     }
 }

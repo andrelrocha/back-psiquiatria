@@ -1,8 +1,6 @@
 package jr.acens.api.domain.diretriz.useCase;
 
-import jr.acens.api.domain.DoencasConverter;
 import jr.acens.api.domain.diretriz.DTO.DiretrizDTO;
-import jr.acens.api.domain.diretriz.Diretriz;
 import jr.acens.api.domain.diretriz.DiretrizRepository;
 import jr.acens.api.infra.utils.mail.MailDTO;
 import jr.acens.api.infra.utils.mail.MailSenderMime;

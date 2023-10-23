@@ -14,6 +14,12 @@ public interface DiretrizRepository extends JpaRepository<Diretriz, Long> {
             """)
     Page<Diretriz> findAllDiretrizesConfirmedByDoenca(Pageable pageable, Doencas doenca);
 
+    @Query("""
+            SELECT d FROM Diretriz d 
+            WHERE d.confirmed = false
+            """)
+    Page<Diretriz> findAllDiretrizesNotConfirmed(Pageable pageable);
+
     boolean existsByText(String text);
 
     boolean existsByTopico(String topico);

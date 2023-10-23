@@ -14,4 +14,5 @@ public interface DiretrizService {
     public String suggestDiretriz(DiretrizDTO data);
     public String confirmSuggestion(Long id);
     public void denySuggestion(Long id);
+    public Page<DiretrizReturnDTO> getDiretrizesSuggestion(Pageable pageable);
 }
