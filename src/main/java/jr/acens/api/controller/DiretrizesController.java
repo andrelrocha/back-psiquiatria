@@ -10,7 +10,9 @@ import jr.acens.api.service.DiretrizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -60,5 +62,11 @@ public class DiretrizesController {
     public ResponseEntity denyDiretriz(@PathVariable Long id) {
         diretrizService.denySuggestion(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/admin/suggestiondiretrizes")
+    public ResponseEntity getDiretrizesSuggestion(@PageableDefault(size = 10, sort = {"id"}) Pageable pageable) {
+        var diretrizesNotConfirmed = diretrizService.getDiretrizesSuggestion(pageable);
+        return ResponseEntity.ok(diretrizesNotConfirmed);
     }
 }
