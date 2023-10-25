@@ -28,7 +28,7 @@ public class DiretrizesController {
     @GetMapping("/{doencas}")
     public ResponseEntity<Page<DiretrizReturnDTO>> listAllDiretrizes(@PathVariable String doencas,
                                                                 @RequestParam(defaultValue = "0") int page,
-                                                                @RequestParam(defaultValue = "10") int size,
+                                                                @RequestParam(defaultValue = "20") int size,
                                                                 @RequestParam(defaultValue = "topico") String sortField,
                                                                 @RequestParam(defaultValue = "asc") String sortOrder) {
         var pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.fromString(sortOrder), sortField));
@@ -58,6 +58,7 @@ public class DiretrizesController {
     @Transactional
     public ResponseEntity<DiretrizReturnDTO> createDiretriz(@RequestBody DiretrizDTO data, UriComponentsBuilder uriBuilder) {
         var diretriz = diretrizService.createDiretriz(data);
+        diretrizService.confirmSuggestion(diretriz.id());
         var uri = uriBuilder.path("/diretrizes/{titulo}").buildAndExpand(diretriz.titulo()).toUri();
         return ResponseEntity.created(uri).body(diretriz);
     }

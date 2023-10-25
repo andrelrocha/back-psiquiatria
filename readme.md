@@ -17,8 +17,8 @@ médica do paciente.
 - [x] Sistema de recuperação de senha;
 - [x] CRUD de users;
 - [x] CRUD de diretrizes;
-- [] CRUD de sintomas;
-- [] CRUD de remedios;
+- [x] CRUD de sintomas;
+- [x] CRUD de remedios;
 - [x] Sistema de sugestão de diretrizes;
 
 ---
