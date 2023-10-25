@@ -33,17 +33,14 @@ LISTAGEM DE DIRETRIZES CONFIRMADAS POR DOENÇA - OK!
 LISTAGEM DE DIRETRIZES NAO CONFIRMADAS PARA O ADMIN - OK!
 UPDATE DIRETRIZ - OK!
 DELETE DIRETRIZ - OK!
-
+CREATE SINTOMA - OK!
+GET SINTOMA BY DOENCA - OK!
 
 
 
 **SINTOMAS**
-- CREATE SINTOMAS [rota exclusiva adm]
 - UPDATE SINTOMAS [rota exclusiva adm]
 - DELETE SINTOMAS [rota exclusiva adm]
-- LISTAR SINTOMAS BY DOENCA - receberá do front o uma string, que passará por DoencasConverter para transformar em enum
-e exibirá todos os sintomas com o doenca recebido 
-- ROTA EXCLUSIVA DE ADM QUE APAREÇA TODAS AS SUGESTÕES, NAO SO AQUELAS CONFIRMED
 
 **REMÉDIOS**
 - LISTAR OS REMÉDIOS POR CLASSE - receberá do front a classe, a qual é enum, passando por ClasseConverter transformando em enum, 
