@@ -34,7 +34,9 @@ public class SecurityConfigurations {
                     req.requestMatchers(HttpMethod.GET, "/diretrizes/admin/**").hasRole("ADMIN");
                     req.requestMatchers(HttpMethod.PUT, "/diretrizes/admin/**").hasRole("ADMIN");
                     req.requestMatchers(HttpMethod.DELETE, "/diretrizes/admin/**").hasRole("ADMIN");
-
+                    req.requestMatchers(HttpMethod.POST, "/sintomas/admin/**").hasRole("ADMIN");
+                    req.requestMatchers(HttpMethod.PUT, "/sintomas/admin/**").hasRole("ADMIN");
+                    req.requestMatchers(HttpMethod.DELETE, "/sintomas/admin/**").hasRole("ADMIN");
 
                     //deve-se criar manualmente no DB o registro de login do arildo
                     req.anyRequest().authenticated();
