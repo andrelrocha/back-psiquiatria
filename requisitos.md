@@ -37,9 +37,5 @@ CREATE SINTOMA - OK!
 GET SINTOMA BY DOENCA - OK!
 UPDATE SINTOMAS - OK!
 DELETE SINTOMAS - OK!
-
-
-
-**REMÉDIOS**
-- LISTAR OS REMÉDIOS POR CLASSE - receberá do front a classe, a qual é enum, passando por ClasseConverter transformando em enum, 
-exibindo todos os remédios daquela classe e suas informações
+LISTAGEM DE REMÉDIOS POR CLASSE - OK!
+ROTA DEV PARA CRIAÇÃO REMEDIOS - OK!

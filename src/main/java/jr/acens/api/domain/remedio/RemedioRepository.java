@@ -9,4 +9,5 @@ public interface RemedioRepository extends JpaRepository<Remedio, Long> {
     @Query("SELECT r FROM Remedio r WHERE r.classesRemedio = :classesRemedio")
     Page<Remedio> findAllRemediosByClasse(Pageable pageable, ClassesRemedio classesRemedio);
 
+    boolean existsByNome(String nome);
 }

@@ -31,7 +31,7 @@ public class SintomasController {
     @GetMapping("/{doencas}")
     public ResponseEntity<Page<SintomaReturnDTO>> listAllSintomas(@PathVariable String doencas,
                                                                      @RequestParam(defaultValue = "0") int page,
-                                                                     @RequestParam(defaultValue = "10") int size,
+                                                                     @RequestParam(defaultValue = "20") int size,
                                                                      @RequestParam(defaultValue = "id") String sortField,
                                                                      @RequestParam(defaultValue = "asc") String sortOrder) {
         var pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.fromString(sortOrder), sortField));

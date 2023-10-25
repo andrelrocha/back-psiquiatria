@@ -1,6 +1,7 @@
 package jr.acens.api.domain.remedio;
 
 import jakarta.persistence.*;
+import jr.acens.api.domain.remedio.DTO.RemedioDTO;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -30,4 +31,14 @@ public class Remedio {
     private String colaterais;
     @Lob
     private String manejo;
+
+    public Remedio(RemedioDTO data) {
+        this.classesRemedio = data.classesRemedio();
+        this.nome = data.nome();
+        this.meiaVida = data.meiaVida();
+        this.doseUsual = data.doseUsual();
+        this.doseTerapeutica = data.doseTerapeutica();
+        this.colaterais = data.colaterais();
+        this.manejo = data.manejo();
+    }
 }
