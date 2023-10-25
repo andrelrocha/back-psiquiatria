@@ -18,6 +18,9 @@ public class DiretrizServiceImpl implements DiretrizService {
     private CreateDiretrizUseCase createDiretrizUseCase;
 
     @Autowired
+    private DeleteDiretrizUseCase deleteDiretrizUseCase;
+
+    @Autowired
     private GetDiretrizesByDoencaUseCase getDiretrizesByDoencaUseCase;
 
     @Autowired
@@ -50,6 +53,11 @@ public class DiretrizServiceImpl implements DiretrizService {
     public DiretrizReturnDTO updateDiretriz(UpdateDiretrizDTO data, Long id) {
         var diretriz = updateDiretrizUseCase.updateDiretriz(data, id);
         return diretriz;
+    }
+
+    @Override
+    public void deleteDiretriz(Long id) {
+        deleteDiretrizUseCase.deleteDiretriz(id);
     }
 
     @Override

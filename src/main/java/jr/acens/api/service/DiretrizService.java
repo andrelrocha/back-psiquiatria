@@ -12,7 +12,7 @@ public interface DiretrizService {
 
     public DiretrizReturnDTO createDiretriz(DiretrizDTO data);
     public DiretrizReturnDTO updateDiretriz(UpdateDiretrizDTO data, Long id);
-
+    public void deleteDiretriz(Long id);
 
 
 
