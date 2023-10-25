@@ -16,6 +16,7 @@ public class Remedio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "classe")
     @Enumerated(EnumType.STRING)
     private ClassesRemedio classesRemedio;
     private String nome;
