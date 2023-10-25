@@ -19,7 +19,7 @@ médica do paciente.
 - [] CRUD de diretrizes;
 - [] CRUD de sintomas;
 - [] CRUD de remedios;
-- [] Sistema de sugestão de diretrizes;
+- [x] Sistema de sugestão de diretrizes;
 
 ---
 
