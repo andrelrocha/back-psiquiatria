@@ -43,4 +43,3 @@ DELETE SINTOMAS - OK!
 **REMÉDIOS**
 - LISTAR OS REMÉDIOS POR CLASSE - receberá do front a classe, a qual é enum, passando por ClasseConverter transformando em enum, 
 exibindo todos os remédios daquela classe e suas informações
-- ADICIONAR TODOS OS REMÉDIOS NO BANCO DE DADOS MANUALMENTE
