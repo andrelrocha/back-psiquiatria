@@ -5,6 +5,7 @@ import jr.acens.api.domain.diretriz.DTO.DiretrizDTO;
 import jr.acens.api.domain.diretriz.DTO.DiretrizReturnDTO;
 import jr.acens.api.domain.sintoma.DTO.SintomaDTO;
 import jr.acens.api.domain.sintoma.DTO.SintomaReturnDTO;
+import jr.acens.api.domain.sintoma.DTO.SintomaUpdateDTO;
 import jr.acens.api.service.SintomaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -36,5 +37,11 @@ public class SintomasController {
         var pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.fromString(sortOrder), sortField));
         var pageReturn = sintomaService.getSintomasByDoenca(pageable, doencas);
         return ResponseEntity.ok(pageReturn);
+    }
+
+    @PutMapping("/admin/{id}")
+    public ResponseEntity updateSintoma(@RequestBody SintomaUpdateDTO data, @PathVariable Long id) {
+        var sintoma = sintomaService.updateSintoma(data, id);
+        return ResponseEntity.ok(sintoma);
     }
 }

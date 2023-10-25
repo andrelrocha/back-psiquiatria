@@ -16,10 +16,10 @@ médica do paciente.
 - [x] Sistema de login e autenticação;
 - [x] Sistema de recuperação de senha;
 - [x] CRUD de users;
-- [] CRUD de diretrizes;
+- [x] CRUD de diretrizes;
 - [] CRUD de sintomas;
 - [] CRUD de remedios;
-- [] Sistema de sugestão de diretrizes;
+- [x] Sistema de sugestão de diretrizes;
 
 ---
 
