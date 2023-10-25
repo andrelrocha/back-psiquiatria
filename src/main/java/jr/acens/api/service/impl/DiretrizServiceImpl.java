@@ -3,6 +3,7 @@ package jr.acens.api.service.impl;
 import jr.acens.api.domain.Doencas;
 import jr.acens.api.domain.diretriz.DTO.DiretrizDTO;
 import jr.acens.api.domain.diretriz.DTO.DiretrizReturnDTO;
+import jr.acens.api.domain.diretriz.DTO.UpdateDiretrizDTO;
 import jr.acens.api.domain.diretriz.useCase.*;
 import jr.acens.api.domain.user.UseCase.CreateUserUseCase;
 import jr.acens.api.service.DiretrizService;
@@ -18,6 +19,9 @@ public class DiretrizServiceImpl implements DiretrizService {
 
     @Autowired
     private GetDiretrizesByDoencaUseCase getDiretrizesByDoencaUseCase;
+
+    @Autowired
+    private UpdateDiretrizUseCase updateDiretrizUseCase;
 
     @Autowired
     private SuggestDiretrizUseCase suggestDiretrizUseCase;
@@ -39,6 +43,12 @@ public class DiretrizServiceImpl implements DiretrizService {
     public DiretrizReturnDTO createDiretriz(DiretrizDTO data) {
         var diretriz = createDiretrizUseCase.createDiretriz(data);
         confirmSuggestionDiretrizUseCase.confirmSuggestion(diretriz.id());
+        return diretriz;
+    }
+
+    @Override
+    public DiretrizReturnDTO updateDiretriz(UpdateDiretrizDTO data, Long id) {
+        var diretriz = updateDiretrizUseCase.updateDiretriz(data, id);
         return diretriz;
     }
 

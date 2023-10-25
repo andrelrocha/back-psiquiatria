@@ -32,10 +32,11 @@ public class SecurityConfigurations {
                     req.requestMatchers(HttpMethod.POST, "/users/**").permitAll();
                     req.requestMatchers(HttpMethod.POST, "/diretrizes/admin/**").hasRole("ADMIN");
                     req.requestMatchers(HttpMethod.GET, "/diretrizes/admin/**").hasRole("ADMIN");
+                    req.requestMatchers(HttpMethod.PUT, "/diretrizes/admin/**").hasRole("ADMIN");
+                    req.requestMatchers(HttpMethod.DELETE, "/diretrizes/admin/**").hasRole("ADMIN");
+
+
                     //deve-se criar manualmente no DB o registro de login do arildo
-                    //req.requestMatchers(HttpMethod.DELETE, "/doencas").hasRole("ADMIN");
-                    //req.requestMatchers(HttpMethod.POST, "/doencas").hasRole("ADMIN");
-                    //req.requestMatchers(HttpMethod.PUT, "/doencas").hasRole("ADMIN");
                     req.anyRequest().authenticated();
                 })
                 .addFilterBefore(securityFilterApplication, UsernamePasswordAuthenticationFilter.class)

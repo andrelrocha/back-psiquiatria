@@ -3,6 +3,7 @@ package jr.acens.api.domain.diretriz;
 import jakarta.persistence.*;
 import jr.acens.api.domain.Doencas;
 import jr.acens.api.domain.diretriz.DTO.DiretrizDTO;
+import jr.acens.api.domain.diretriz.DTO.UpdateDiretrizDTO;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -34,5 +35,9 @@ public class Diretriz {
 
     public void setConfirmed() {
         this.confirmed = true;
+    }
+
+    public void updateDiretriz(UpdateDiretrizDTO data) {
+        this.text = data.text();
     }
 }
