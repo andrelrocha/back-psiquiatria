@@ -44,4 +44,10 @@ public class SintomasController {
         var sintoma = sintomaService.updateSintoma(data, id);
         return ResponseEntity.ok(sintoma);
     }
+
+    @DeleteMapping("/admin/{id}")
+    public ResponseEntity deleteSintoma(@PathVariable Long id) {
+        sintomaService.deleteSintoma(id);
+        return ResponseEntity.noContent().build();
+    }
 }

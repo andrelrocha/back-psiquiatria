@@ -8,11 +8,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface SintomaService {
-    public Page<SintomaReturnDTO> getAllSintomasByDoenca(Doencas doenca);
+    Page<SintomaReturnDTO> getAllSintomasByDoenca(Doencas doenca);
 
-    public SintomaReturnDTO createSintoma(SintomaDTO data);
+    SintomaReturnDTO createSintoma(SintomaDTO data);
 
-    public Page<SintomaReturnDTO> getSintomasByDoenca(Pageable pageable, String doenca);
+    Page<SintomaReturnDTO> getSintomasByDoenca(Pageable pageable, String doenca);
 
-    public SintomaReturnDTO updateSintoma(SintomaUpdateDTO data, Long id);
+    SintomaReturnDTO updateSintoma(SintomaUpdateDTO data, Long id);
+
+    void deleteSintoma(Long id);
 }
