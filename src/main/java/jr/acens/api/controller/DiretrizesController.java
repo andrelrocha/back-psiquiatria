@@ -4,8 +4,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jr.acens.api.domain.diretriz.DTO.DiretrizDTO;
 import jr.acens.api.domain.diretriz.DTO.DiretrizReturnDTO;
-import jr.acens.api.domain.user.DTO.UserDTO;
-import jr.acens.api.domain.user.DTO.UserReturnListDTO;
+import jr.acens.api.domain.diretriz.DTO.UpdateDiretrizDTO;
 import jr.acens.api.service.DiretrizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -37,11 +36,16 @@ public class DiretrizesController {
         return ResponseEntity.ok(pageReturn);
     }
 
-
     @PostMapping("/suggestion")
     public ResponseEntity<String> suggestDiretriz(@RequestBody DiretrizDTO data) {
         var string = diretrizService.suggestDiretriz(data);
         return ResponseEntity.status(HttpStatus.CREATED).body(string);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<DiretrizReturnDTO> updateDiretriz(@RequestBody UpdateDiretrizDTO data, @PathVariable Long id) {
+        var diretriz = diretrizService.updateDiretriz(data, id);
+        return ResponseEntity.ok(diretriz);
     }
 
     @PostMapping("/admin/create")
