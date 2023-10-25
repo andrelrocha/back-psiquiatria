@@ -42,10 +42,16 @@ public class DiretrizesController {
         return ResponseEntity.status(HttpStatus.CREATED).body(string);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/admin/{id}")
     public ResponseEntity<DiretrizReturnDTO> updateDiretriz(@RequestBody UpdateDiretrizDTO data, @PathVariable Long id) {
         var diretriz = diretrizService.updateDiretriz(data, id);
         return ResponseEntity.ok(diretriz);
+    }
+
+    @DeleteMapping("/admin/{id}")
+    public ResponseEntity deleteDiretriz(@PathVariable Long id) {
+        diretrizService.deleteDiretriz(id);
+        return ResponseEntity.noContent().build();
     }
 
     @PostMapping("/admin/create")
