@@ -5,6 +5,7 @@ import jr.acens.api.domain.sintoma.DTO.SintomaDTO;
 import jr.acens.api.domain.sintoma.DTO.SintomaReturnDTO;
 import jr.acens.api.domain.sintoma.DTO.SintomaUpdateDTO;
 import jr.acens.api.domain.sintoma.useCase.CreateSintomaUseCase;
+import jr.acens.api.domain.sintoma.useCase.DeleteSintomaUseCase;
 import jr.acens.api.domain.sintoma.useCase.GetSintomasByDoencaUseCase;
 import jr.acens.api.domain.sintoma.useCase.UpdateSintomaUseCase;
 import jr.acens.api.service.SintomaService;
@@ -18,6 +19,9 @@ public class SintomasImpl implements SintomaService {
 
     @Autowired
     private CreateSintomaUseCase createSintomaUseCase;
+
+    @Autowired
+    private DeleteSintomaUseCase deleteSintomaUseCase;
 
     @Autowired
     private GetSintomasByDoencaUseCase getSintomasByDoencaUseCase;
@@ -46,5 +50,10 @@ public class SintomasImpl implements SintomaService {
     public SintomaReturnDTO updateSintoma(SintomaUpdateDTO data, Long id) {
         var sintomaUpdated = updateSintomaUseCase.updateSintoma(data, id);
         return sintomaUpdated;
+    }
+
+    @Override
+    public void deleteSintoma(Long id) {
+        deleteSintomaUseCase.deleteSintoma(id);
     }
 }

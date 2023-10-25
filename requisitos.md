@@ -35,12 +35,10 @@ UPDATE DIRETRIZ - OK!
 DELETE DIRETRIZ - OK!
 CREATE SINTOMA - OK!
 GET SINTOMA BY DOENCA - OK!
+UPDATE SINTOMAS - OK!
+DELETE SINTOMAS - OK!
 
 
-
-**SINTOMAS**
-- UPDATE SINTOMAS [rota exclusiva adm]
-- DELETE SINTOMAS [rota exclusiva adm]
 
 **REMÉDIOS**
 - LISTAR OS REMÉDIOS POR CLASSE - receberá do front a classe, a qual é enum, passando por ClasseConverter transformando em enum, 
