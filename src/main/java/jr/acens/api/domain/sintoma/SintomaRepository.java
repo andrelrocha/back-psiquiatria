@@ -12,4 +12,6 @@ public interface SintomaRepository extends JpaRepository<Sintoma, Long> {
             WHERE s.doenca = :doenca
             """)
     Page<Sintoma> findAllSintomasByDoenca(Pageable pageable, Doencas doenca);
+
+    boolean existsByDescricaoAndDoenca(String descricao, Doencas doenca);
 }

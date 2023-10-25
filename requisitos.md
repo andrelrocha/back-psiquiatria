@@ -32,12 +32,10 @@ CREATE DIRETRIZ - OK!
 LISTAGEM DE DIRETRIZES CONFIRMADAS POR DOENÇA - OK!
 LISTAGEM DE DIRETRIZES NAO CONFIRMADAS PARA O ADMIN - OK!
 UPDATE DIRETRIZ - OK!
+DELETE DIRETRIZ - OK!
 
 
 
-
-**DIRETRIZES** 
-- DELETE DIRETRIZ [rota exclusiva adm]
 
 **SINTOMAS**
 - CREATE SINTOMAS [rota exclusiva adm]
@@ -51,12 +49,3 @@ e exibirá todos os sintomas com o doenca recebido
 - LISTAR OS REMÉDIOS POR CLASSE - receberá do front a classe, a qual é enum, passando por ClasseConverter transformando em enum, 
 exibindo todos os remédios daquela classe e suas informações
 - ADICIONAR TODOS OS REMÉDIOS NO BANCO DE DADOS MANUALMENTE
-
-///////////////
-ANDRÉ 
-
-**SUGESTAO DIRETRIZ** 
-- USUÁRIO FAZ A SUGESTÃO, QUE IRÁ APARECER PARA diretrizes/admin/sugestoes,
-- ARILDO PODE TANTO ACEITAR E ADICIONAR COMO NOVO, COMO VAI PODER EDITAR A DIRETRIZ MANUALMENTE 
-- NA ROTA PUT DIRETRIZES
-- GET DIRETRIZES WHERE CONFIRMED = FALSE
