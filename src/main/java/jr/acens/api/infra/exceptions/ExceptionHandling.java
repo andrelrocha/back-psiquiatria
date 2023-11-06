@@ -54,6 +54,7 @@ public class ExceptionHandling {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Acesso negado.");
     }
 
+
     @ExceptionHandler(InternalAuthenticationServiceException.class)
     public ResponseEntity handleInternalAuthenticationServiceException(InternalAuthenticationServiceException ex) {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Erro no processo de autorização do usuário.\nSenha e/ou login errados.");
