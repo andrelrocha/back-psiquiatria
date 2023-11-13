@@ -11,14 +11,12 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.util.UriComponentsBuilder;
 import jr.acens.api.infra.security.TokenJwtDto;
 import jr.acens.api.service.UserService;
 
 @RestController
 @RequestMapping("/users")
-@SecurityRequirement(name = "bearer-key")
 public class UserController {
 
     @Autowired
